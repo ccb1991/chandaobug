@@ -1,0 +1,1394 @@
+11217
+<!DOCTYPE html>
+<html lang='zh-cn'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>鲁班浏览器::Bug - 禅道项目</title>
+<script>var config={"webRoot":"\/zentao\/www\/","cookieLife":30,"requestType":"GET","pathType":"clean","requestFix":"-","moduleVar":"m","methodVar":"f","viewVar":"t","defaultView":"html","themeRoot":"\/zentao\/www\/theme\/","currentModule":"bug","currentMethod":"browse","clientLang":"zh-cn","requiredFields":"","submitting":"\u7a0d\u5019...","save":"\u4fdd\u5b58","router":"\/zentao\/www\/index.php","timeout":"\u8fde\u63a5\u8d85\u65f6\uff0c\u8bf7\u68c0\u67e5\u7f51\u7edc\u73af\u5883\uff0c\u6216\u91cd\u8bd5\uff01"}
+</script>
+<script src='/zentao/www/js/all.js?v=6.0'></script>
+<link rel='stylesheet' href='/zentao/www/theme/default/zh-cn.default.css?v=6.0' type='text/css' media='screen' />
+<style>.ke-toolbar .ke-outline[data-name='savetemplate'] {display: none}
+.closed, .closed a{color:gray; text-decoration:line-through;}
+.resolved, .resolved a{color:#8EC21F; text-decoration:none;}
+.tree .closed, .tree .closed a{color:#003366; text-decoration:none;}
+.confirm0 {color:gray;  font-size:9px}
+.confirm1 {color:green; font-size:9px}
+</style><link rel='icon' href='/zentao/www/favicon.ico' type='image/x-icon' />
+<link rel='shortcut icon' href='/zentao/www/favicon.ico' type='image/x-icon' />
+<!--[if lt IE 9]>
+<script src='/zentao/www/js/html5shiv/min.js?v=1426744325'></script>
+<script src='/zentao/www/js/respond/min.js?v=1426744325'></script>
+<![endif]-->
+<!--[if lt IE 10]>
+<script src='/zentao/www/js/jquery/placeholder/min.js?v=1426744325'></script>
+<![endif]-->
+</head>
+<body>
+<script> 
+noResultsMatch       = '没有匹配结果';
+chooseUsersToMail    = '选择要发信通知的用户...';
+defaultChosenOptions = {no_results_text: noResultsMatch, allow_single_deselect: true, disable_search_threshold: 1, width: '100%', placeholder_text_single: ' ', placeholder_text_multiple: ' ', search_contains: true};
+$(document).ready(function()
+{
+    $("#mailto").attr('data-placeholder', chooseUsersToMail);
+    $(".chosen, #productID").chosen(defaultChosenOptions);
+});
+</script>
+<header id='header'>
+  <div id='topbar'>
+    <div class='pull-right' id='topnav'><div class='dropdown' id='userMenu'><a href='javascript:;' data-toggle='dropdown'><i class='icon-user'></i> 陈辰柄 <span class='caret'></span></a><ul class='dropdown-menu'><li><a href='/zentao/www/index.php?m=my&f=profile&onlybody=yes' target='' class='iframe' data-width='600'>个人档案</a>
+</li><li><a href='/zentao/www/index.php?m=my&f=changepassword&onlybody=yes' target='' class='iframe' data-width='500'>更改密码</a>
+</li><li class='divider'></li><li class='dropdown-submenu left'><a href='javascript:;'>主题</a><ul class='dropdown-menu'><li class='theme-option active'><a href='javascript:selectTheme("default");' data-value='default'>默认</a></li><li class='theme-option'><a href='javascript:selectTheme("green");' data-value='green'>绿色</a></li><li class='theme-option'><a href='javascript:selectTheme("red");' data-value='red'>红色</a></li><li class='theme-option'><a href='javascript:selectTheme("lightblue");' data-value='lightblue'>亮蓝</a></li><li class='theme-option'><a href='javascript:selectTheme("blackberry");' data-value='blackberry'>黑莓</a></li></ul></li><li class='dropdown-submenu left'><a href='javascript:;'>Language</a><ul class='dropdown-menu'><li class='lang-option active'><a href='javascript:selectLang("zh-cn");' data-value='zh-cn'>简体</a></li><li class='lang-option'><a href='javascript:selectLang("zh-tw");' data-value='zh-tw'>繁體</a></li><li class='lang-option'><a href='javascript:selectLang("en");' data-value='en'>English</a></li></ul></li></ul></div><a href='/zentao/www/index.php?m=user&f=logout' >退出</a>
+<a href='/zentao/www/index.php?m=misc&f=about' target='' class='about iframe' data-width='900' data-headerless='true' data-class='modal-about'>关于</a>
+<a href='http://175.102.128.131/luban123.html' target='_blank' style='color:#d1e4f2;'><i class='icon-plane'></i> 智能导航</a><a href='http://192.168.13.2:23380/attendance/login?account=chenchenbing&password=e10adc3949ba59abbe56e057f20f883e' target='_blank' style='color:#d1e4f2;'><i class='icon-sun'></i> 个人考勤</a><a href='index.php?m=user&f=sendLogs&onlybody=yes' class='iframe' style='color:#d1e4f2;'><i class='icon-envelope'></i>发工作日志</a></div>
+    <h5 id='companyname'>
+      上海鲁班软件有限公司研发中心项目管理系统    </h5>
+  </div>
+  <nav id='mainmenu'>
+    <ul class='nav'>
+<li ><a href='/zentao/www/index.php?m=my&f=index'  id='menumy'><i class="icon-home"></i><span> 我的地盘</span></a></li>
+<li ><a href='/zentao/www/index.php?m=product&f=index'  id='menuproduct'>产品</a></li>
+<li ><a href='/zentao/www/index.php?m=project&f=index'  id='menuproject'>项目</a></li>
+<li class='active'><a href='/zentao/www/index.php?m=qa&f=index' class='active' id='menuqa'>测试</a></li>
+<li ><a href='/zentao/www/index.php?m=doc&f=index'  id='menudoc'>文档</a></li>
+</ul>
+<div class='input-group input-group-sm' id='searchbox'><div class='input-group-btn' id='typeSelector'><button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><span id='searchTypeName'>Bug</span> <span class='caret'></span></button><input type='hidden' name='searchType' id='searchType' value='bug'  />
+<ul class='dropdown-menu'><li><a href='javascript:;' data-value='bug'>Bug</a></li><li><a href='javascript:;' data-value='story'>需求</a></li><li><a href='javascript:;' data-value='task'>任务</a></li><li><a href='javascript:;' data-value='testcase'>用例</a></li><li><a href='javascript:;' data-value='project'>项目</a></li><li><a href='javascript:;' data-value='product'>产品</a></li><li><a href='javascript:;' data-value='user'>用户</a></li><li><a href='javascript:;' data-value='build'>版本</a></li><li><a href='javascript:;' data-value='release'>发布</a></li><li><a href='javascript:;' data-value='productplan'>产品计划</a></li><li><a href='javascript:;' data-value='testtask'>测试任务</a></li><li><a href='javascript:;' data-value='doc'>文档</a></li></ul></div><input type='text' name='searchQuery' id='searchQuery' value='' onclick='this.value=""' onkeydown='if(event.keyCode==13) shortcut()' class='form-control' placeholder='编号(ctrl+g)' />
+<div id='objectSwitcher' class='input-group-btn'><a href='javascript:shortcut();' class='btn'>GO! </a></div></div>
+  </nav>
+  <nav id="modulemenu">
+    <ul class='nav'>
+<li><a id='currentItem' href="javascript:showDropMenu('product', '9', 'bug', 'browse', '')">鲁班浏览器 <span class='icon-caret-down'></span></a><div id='dropMenu'></div></li>
+<li class=' active'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9' target='' id=submenubug>Bug</a>
+</li>
+<li class=' '><a href='/zentao/www/index.php?m=testcase&f=browse&productID=9' target='' id=submenutestcase>用例</a>
+</li>
+<li class=' '><a href='/zentao/www/index.php?m=testtask&f=browse&productID=9' target='' id=submenutesttask>测试任务</a>
+</li>
+</ul>
+  </nav>
+</header>
+
+<div id='wrap'>
+  <div class='outer'>
+<script language='javascript'>$(function() { $(".tree").treeview({ persist: "cookie", collapsed: true, unique: false}) })</script>
+<script>browseType = "bysearch"
+</script>
+<script>moduleID = 0
+</script>
+<div id='featurebar'>
+  <ul class='nav'>
+    <li id='allTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=all&param=0&orderBy=openedDate_desc&recTotal=0&recPerPage=200' >所有</a>
+</li><li id='assigntomeTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=assignToMe&param=0' >指派给我</a>
+</li><li id='openedbymeTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=openedByMe&param=0' >由我创建</a>
+</li><li id='resolvedbymeTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=resolvedByMe&param=0' >由我解决</a>
+</li><li id='assigntonullTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=assignToNull&param=0' >未指派</a>
+</li><li id='unresolvedTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=unResolved&param=0' >未解决</a>
+</li><li id='unclosedTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=unclosed&param=0' >未关闭</a>
+</li><li id='longlifebugsTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=longLifeBugs&param=0' >久未处理</a>
+</li><li id='postponedbugsTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=postponedBugs&param=0' >被延期</a>
+</li><li id='needconfirmTab'><a href='/zentao/www/index.php?m=bug&f=browse&productid=9&browseType=needconfirm&param=0' >需求变动</a>
+</li><li id='bysearchTab'><a href='#'><i class='icon-search icon'></i>&nbsp;搜索</a></li>   </ul>
+  <div class='actions'>
+    <div class='btn-group'>
+      <div class='btn-group'>
+        <button type='button' class='btn btn-default dropdown-toggle' data-toggle='dropdown'>
+          <i class='icon-download-alt'></i> 导出          <span class='caret'></span>
+        </button>
+        <ul class='dropdown-menu' id='exportActionMenu'>
+          <li><a href='/zentao/www/index.php?m=bug&f=export&productID=9&orderBy=openedDate_desc' target='' class='export'>导出数据</a>
+</li>        </ul>
+      </div>
+      <div class='btn-group'>
+        <a href='/zentao/www/index.php?m=bug&f=report&productID=9&browseType=bysearch&moduleID=0' target='' class='btn ' ><i class='icon-common-report icon-bar-chart'></i> 报表</a>
+      </div>
+    </div>
+    <div class='btn-group'>
+      <a href='/zentao/www/index.php?m=bug&f=batchCreate&productID=9&projectID=0&moduleID=0' target='' class='btn ' ><i class='icon-bug-batchCreate icon-plus-sign'></i> 批量添加</a>
+<a href='/zentao/www/index.php?m=bug&f=create&productID=9&extra=moduleID=0' target='' class='btn ' ><i class='icon-bug-create icon-plus'></i> 提Bug</a>
+    </div>
+  </div>
+  <div id='querybox' class='show'></div>
+</div>
+<div class='side' id='treebox'>
+  <a class='side-handle' data-id='bugTree'><i class='icon-caret-left'></i></a>
+  <div class='side-body'>
+    <div class='panel panel-sm'>
+      <div class='panel-heading nobr'>
+        <i class='icon-cube'></i> <strong>鲁班浏览器</strong>
+      </div>
+      <div class='panel-body'>
+        <style>.active{font-weight: bold;}</style><ul class='tree'><li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2276' id='module2276'>BE V8.0.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2277' id='module2277'>1. 遗留bug</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2423' id='module2423'>BE V7.9.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2424' id='module2424'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2425' id='module2425'>2.Rhino相关</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2426' id='module2426'>3.CO相关</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2427' id='module2427'>4.其他</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2428' id='module2428'>5.EDS相关</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2384' id='module2384'>BE V7.8.0 Bentley</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2385' id='module2385'>1. Bentley相关</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2386' id='module2386'>2. EDS后台</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2387' id='module2387'>3. 其他</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2388' id='module2388'>4. CO有关</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2147' id='module2147'>BE V7.7.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2148' id='module2148'>1. 遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2176' id='module2176'>2. 幕墙</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2177' id='module2177'>3. C3D</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2248' id='module2248'>4. CO</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2178' id='module2178'>5. 其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2071' id='module2071'>BE V7.6.0巡检</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2072' id='module2072'>1、遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2073' id='module2073'>2、海康</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2120' id='module2120'>3、巡检</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2121' id='module2121'>4、EDS</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2122' id='module2122'>5、其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2051' id='module2051'>BE V7.5.0 CO</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2052' id='module2052'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2053' id='module2053'>2.版本安装</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2054' id='module2054'>3.与co相关</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=2055' id='module2055'>4.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1954' id='module1954'>蒲凯需求</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1955' id='module1955'>0.二维码</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1956' id='module1956'>1.资料</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1957' id='module1957'>2.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1872' id='module1872'>BE V7.6.0筑业</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1874' id='module1874'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1875' id='module1875'>2.筑业资料</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1876' id='module1876'>3.日志</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1877' id='module1877'>4.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1950' id='module1950'>BE V7.4.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1951' id='module1951'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1952' id='module1952'>2.Remiz</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1953' id='module1953'>3.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1873' id='module1873'>抽取优化</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1878' id='module1878'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1879' id='module1879'>2.抽取</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1845' id='module1845'>BE V7.3.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1846' id='module1846'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1869' id='module1869'>2.场布</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1870' id='module1870'>3.界面优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1871' id='module1871'>4.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1742' id='module1742'>BE V7.2.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1743' id='module1743'>1.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1813' id='module1813'>2.班筑</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1814' id='module1814'>3.二维码</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1815' id='module1815'>4.发票信息</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1816' id='module1816'>5.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1044' id='module1044'>用户反馈BUG</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1045' id='module1045'>1.抽取</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1046' id='module1046'>2.登录</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1047' id='module1047'>3.图形</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1048' id='module1048'>4.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1440' id='module1440'>BE V7.1.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1441' id='module1441'>1.遗留bug</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1502' id='module1502'>2.资料优化</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1507' id='module1507'>2.1上传资料</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1508' id='module1508'>2.2资料管理</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1509' id='module1509'>2.3高拍仪扫描仪</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1503' id='module1503'>3.tekla报表</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1504' id='module1504'>4.抽取优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1505' id='module1505'>5.安装优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1506' id='module1506'>6.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1561' id='module1561'>BE V7.0.1</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1562' id='module1562'>1.钢筋节点lbg导入</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1563' id='module1563'>2.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1141' id='module1141'>BE V7.0.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1142' id='module1142'>1.6.4.0发布后bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1373' id='module1373'>2.沙盘</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1374' id='module1374'>3.资料</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1375' id='module1375'>4.协作报告</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1376' id='module1376'>5.用户反馈</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1377' id='module1377'>6.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1230' id='module1230'>BE V6.4.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1231' id='module1231'>1.协作图钉</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=1232' id='module1232'>2. 其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=972' id='module972'>BE V6.3.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=973' id='module973'>1.6.2.0发布bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=974' id='module974'>2.优化功能</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=975' id='module975'>3.LubanEarth</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=976' id='module976'>4.算量配合</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=977' id='module977'>5.协同配合</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=978' id='module978'>6.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=888' id='module888'>BE V6.2.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=889' id='module889'>1.6.1.0发布bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=890' id='module890'>2.Tekla导入</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=891' id='module891'>3.EDS后台处理</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=892' id='module892'>4.监控优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=893' id='module893'>5.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=689' id='module689'>BE V6.1.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=690' id='module690'>1.6.0.0遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=691' id='module691'>2.6.0.0发布后的bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=706' id='module706'>3.BE升级VS2012</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=716' id='module716'>4.工作集</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=720' id='module720'>4.1创建\打开\管理</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=721' id='module721'>4.2工程合并</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=722' id='module722'>4.3工作集调整功能</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=717' id='module717'>5.优化</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=723' id='module723'>5.1宣传语、历史工程打开</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=724' id='module724'>5.2构件名称显示</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=725' id='module725'>5.3构件定位建模</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=726' id='module726'>5.4剖切视口保存</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=727' id='module727'>5.5剖切自定义角度</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=728' id='module728'>5.6颜色模板优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=729' id='module729'>5.7多选构件优化</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=718' id='module718'>6.公共功能抽取</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=719' id='module719'>7.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=511' id='module511'>BE V6.0.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=512' id='module512'>1. 5.4.0遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=522' id='module522'>2.5.4.0发布后的bug</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=539' id='module539'>3.沙盘</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=541' id='module541'>3.1 沙盘模式</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=546' id='module546'>3.2 状态定义</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=543' id='module543'>3.3 状态统计</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=585' id='module585'>3.4状态管理</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=542' id='module542'>3.5 驾驶舱</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=544' id='module544'>3.6显控-沙盘</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=586' id='module586'>3.7显控-优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=545' id='module545'>3.8构件信息沙</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=587' id='module587'>3.9构件信息原</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=588' id='module588'>3.10权限控制</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=589' id='module589'>3.11EDS状态模</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=647' id='module647'>3.12监控</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=540' id='module540'>4.优化</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=547' id='module547'>4.1 隐藏构件弹框</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=548' id='module548'>4.2 工程增加筛选</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=549' id='module549'>4.3 界面优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=550' id='module550'>4.4 分辨率调整</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=551' id='module551'>4.5下载pds菜单</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=552' id='module552'>4.6 登陆框优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=553' id='module553'>4.7 资料批量下载</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=554' id='module554'>4.8 pdf图纸优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=555' id='module555'>4.9 监控显示优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=556' id='module556'>4.10反查透明</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=557' id='module557'>4.11 替换hoops</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=590' id='module590'>4.12任务提醒</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=558' id='module558'>5.其他</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=664' id='module664'>6.服务器搜索方式优化</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=671' id='module671'>7.日志记录</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=672' id='module672'>1.BE</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=673' id='module673'>2.MC</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=674' id='module674'>3.SP</a>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=595' id='module595'>BE V6.0.0 lbg</a>
+<ul><li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=596' id='module596'>1.新STF转LBG</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=598' id='module598'>1.土 建</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=599' id='module599'>2.安装</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=600' id='module600'>3.钢筋</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=601' id='module601'>4.REVIT</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=597' id='module597'>2.BE支持LBG格式</a>
+<ul><li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=603' id='module603'>1.颜色模板</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=604' id='module604'>2.1土建</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=605' id='module605'>2.2钢筋</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=606' id='module606'>2.3安装</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=607' id='module607'>2.4Revit</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=602' id='module602'>2.其他</a>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=591' id='module591'>BE V5.6.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=592' id='module592'>1、属性搜索</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=593' id='module593'>2、属性统计</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=594' id='module594'>3、其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=577' id='module577'>BE V5.5.0</a>
+<ul><li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=568' id='module568'>1. 资料标签权限细分</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=578' id='module578'>1.1客户端</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=579' id='module579'>1.2服务端</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=580' id='module580'>2.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=487' id='module487'>BE V5.4.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=488' id='module488'>1. 5.3.0遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=490' id='module490'>2.BV构件挂接照片配套</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=491' id='module491'>3.阶段展示优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=492' id='module492'>4.iban照片报告</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=493' id='module493'>5.二维码优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=494' id='module494'>6.视频监控</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=495' id='module495'>7.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=407' id='module407'>BE V5.3.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=408' id='module408'>1.5.2.0发布后的bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=409' id='module409'>2.遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=372' id='module372'>1.v5.1.0遗留bug</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=410' id='module410'>3.revit相关</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=415' id='module415'>3.1 revit上传</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=416' id='module416'>3.2 revit模型展示</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=417' id='module417'>3.3 revit已有功能支持</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=418' id='module418'>3.4 revit数据展现</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=419' id='module419'>3.5 revitEDS管理端</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=464' id='module464'>3.6 revit导出</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=411' id='module411'>4.钢筋工程支持查看梁标注</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=412' id='module412'>5.动态剖切</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=413' id='module413'>6.功能优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=414' id='module414'>7.其他</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=371' id='module371'>BE V5.2.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=380' id='module380'>5.1.0发布后bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=456' id='module456'>2. 属性值支持挂接新附件</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=462' id='module462'>3.企业v5.0-5.1PDS数据库升级</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=473' id='module473'>4.属性值支持挂接已有资料附件</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=296' id='module296'>BE V5.1.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=297' id='module297'>遗留bug</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=330' id='module330'>1.数据扩展和优化</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=334' id='module334'>1.1 新增土建实物量报表</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=335' id='module335'>1.2 报表输出增加格式</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=336' id='module336'>1.3 其他</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=331' id='module331'>2.PDSShell壳调整</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=332' id='module332'>3.Iban照片增加闭环</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=337' id='module337'>3.1 富文本编辑器</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=338' id='module338'>3.2 增加报告模板</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=360' id='module360'>3.3 整改状态</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=333' id='module333'>4.其他优化功能</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=197' id='module197'>BE V5.0.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=198' id='module198'>遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=199' id='module199'>EDS</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=200' id='module200'>新增功能</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=201' id='module201'>图形平台切换</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=263' id='module263'>构件贴图</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=264' id='module264'>监控</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=265' id='module265'>尺寸标注</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=266' id='module266'>hoops设置</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=267' id='module267'>模型施工段打断-TJ</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=268' id='module268'>dll文件推送</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=269' id='module269'>eds空间计算</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=286' id='module286'>主界面优化</a>
+
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=202' id='module202'>其它</a>
+
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=189' id='module189'>BE V4.6.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=190' id='module190'>遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=191' id='module191'>服务端</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=192' id='module192'>客户端</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=193' id='module193'>资料标签支持多级</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=194' id='module194'>钢结构属性优化</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=195' id='module195'>优化功能</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=196' id='module196'>其它</a>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=134' id='module134'>BE V4.5.0</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=135' id='module135'>遗留bug</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=136' id='module136'>服务端</a>
+
+</li>
+<li class='closed'><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=137' id='module137'>客户端</a>
+<ul><li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=138' id='module138'>64位支持</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=139' id='module139'>报表拆分</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=140' id='module140'>钢筋节点详图</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=141' id='module141'>优化功能</a>
+
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=142' id='module142'>其它</a>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='/zentao/www/index.php?m=bug&f=browse&root=9&type=byModule&param=99' id='module99'>BugFree移植bug</a>
+
+</li>
+</ul>
+        <div class='text-right'>
+                            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='main'>
+  <form method='post'>
+    <table class='table table-condensed table-hover table-striped tablesorter table-fixed' id='bugList'>
+            <thead>
+      <tr>
+        <th class='w-id'>       <div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=id_asc&recTotal=5&recPerPage=1000' >ID</a>
+</div></th>
+        <th class='w-severity'> <div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=severity_asc&recTotal=5&recPerPage=1000' >级别</a>
+</div></th>
+        <th class='w-pri'>      <div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=pri_asc&recTotal=5&recPerPage=1000' >P</a>
+</div></th>
+
+        <th>                    <div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=title_asc&recTotal=5&recPerPage=1000' >Bug标题</a>
+</div></th>
+
+                <th class='w-80px'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=status_asc&recTotal=5&recPerPage=1000' >状态</a>
+</div></th>
+        
+                <th class='w-user'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=openedBy_asc&recTotal=5&recPerPage=1000' >创建</a>
+</div></th>
+
+                <th class='w-date'><div class='headerSortUp'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=openedDate_asc&recTotal=5&recPerPage=1000' >创建日期</a>
+</div></th>
+        
+        <th class='w-user'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=assignedTo_asc&recTotal=5&recPerPage=1000' >指派</a>
+</div></th>
+        <th class='w-user'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=resolvedBy_asc&recTotal=5&recPerPage=1000' >解决</a>
+</div></th>
+        <th class='w-resolution'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=resolution_asc&recTotal=5&recPerPage=1000' >方案</a>
+</div></th>
+
+                <th class='w-date'><div class='header'><a href='/zentao/www/index.php?m=bug&f=browse&productID=9&browseType=bysearch&param=myQueryID&orderBy=resolvedDate_asc&recTotal=5&recPerPage=1000' >解决日期</a>
+</div></th>
+        
+        <th class='w-140px {sorter:false}'>操作</th>
+              </tr>
+      </thead>
+      <tbody>
+                  <tr class='text-center'>
+        <td class='bug-active strong text-left'>
+          <input type='checkbox' name='bugIDList[]'  value='59133'/> 
+          <a href='/zentao/www/index.php?m=bug&f=view&bugID=59133' >59133</a>
+        </td>
+        <td><span class='severity3'>3</span></td>
+        <td><span class='pri'></span></td>
+
+                <td class='text-left' title="测试外网，iban测试10企业名称返回不对"><span class='confirm0'>[未确认] </span><a href='/zentao/www/index.php?m=bug&f=view&bugID=59133' >测试外网，iban测试10企业名称返回不对</a>
+</td>
+
+                <td>激活</td>
+        
+                <td>陈辰柄</td>
+
+                <td>01-23 11:28</td>
+        
+        <td >待解决</td>
+        <td></td>
+        <td></td>
+
+                <td>00-00 00:00</td>
+        
+        <td class='text-right'>
+          <a href='/zentao/www/index.php?m=bug&f=confirmBug&bugID=59133&onlybody=yes' target='' class='btn-icon iframe' title='确认' ><i class='icon-bug-confirmBug icon-search'></i></a><a href='/zentao/www/index.php?m=bug&f=assignTo&bugID=59133&onlybody=yes' target='' class='btn-icon iframe' title='指派' ><i class='icon-bug-assignTo icon-hand-right'></i></a><a href='/zentao/www/index.php?m=bug&f=resolve&bugID=59133&onlybody=yes' target='' class='btn-icon iframe' title='解决' ><i class='icon-bug-resolve icon-ok-sign'></i></a><button type='button' class='disabled btn-icon iframe'><i class='icon-bug-close disabled icon-off' title='关闭' ></i></button><a href='/zentao/www/index.php?m=bug&f=edit&bugID=59133' target='' class='btn-icon ' title='编辑' ><i class='icon-common-edit icon-pencil'></i></a><a href='/zentao/www/index.php?m=bug&f=create&product=9&extra=bugID=59133' target='' class='btn-icon ' title='复制' ><i class='icon-common-copy icon-copy'></i></a>        </td>
+              </tr>
+                  <tr class='text-center'>
+        <td class='bug-resolved strong text-left'>
+          <input type='checkbox' name='bugIDList[]'  value='56260'/> 
+          <a href='/zentao/www/index.php?m=bug&f=view&bugID=56260' >56260</a>
+        </td>
+        <td><span class='severity2'>2</span></td>
+        <td><span class='pri'></span></td>
+
+                <td class='text-left' title="构件搜索出线路，反查线路未高亮显示"><span class='confirm1'>[已确认] </span><a href='/zentao/www/index.php?m=bug&f=view&bugID=56260' >构件搜索出线路，反查线路未高亮显示</a>
+</td>
+
+                <td>已解决</td>
+        
+                <td>周萍</td>
+
+                <td>12-07 16:20</td>
+        
+        <td >待解决</td>
+        <td>贾守亮</td>
+        <td>外部原因</td>
+
+                <td>12-08 15:31</td>
+        
+        <td class='text-right'>
+          <button type='button' class='disabled btn-icon iframe'><i class='icon-bug-confirmBug disabled icon-search' title='确认' ></i></button><a href='/zentao/www/index.php?m=bug&f=assignTo&bugID=56260&onlybody=yes' target='' class='btn-icon iframe' title='指派' ><i class='icon-bug-assignTo icon-hand-right'></i></a><button type='button' class='disabled btn-icon iframe'><i class='icon-bug-resolve disabled icon-ok-sign' title='解决' ></i></button><a href='/zentao/www/index.php?m=bug&f=close&bugID=56260&onlybody=yes' target='' class='btn-icon iframe' title='关闭' ><i class='icon-bug-close icon-off'></i></a><a href='/zentao/www/index.php?m=bug&f=edit&bugID=56260' target='' class='btn-icon ' title='编辑' ><i class='icon-common-edit icon-pencil'></i></a><a href='/zentao/www/index.php?m=bug&f=create&product=9&extra=bugID=56260' target='' class='btn-icon ' title='复制' ><i class='icon-common-copy icon-copy'></i></a>        </td>
+              </tr>
+                  <tr class='text-center'>
+        <td class='bug-active strong text-left'>
+          <input type='checkbox' name='bugIDList[]'  value='55746'/> 
+          <a href='/zentao/www/index.php?m=bug&f=view&bugID=55746' >55746</a>
+        </td>
+        <td><span class='severity3'>3</span></td>
+        <td><span class='pri'></span></td>
+
+                <td class='text-left' title="WIN10操作系统，32位BE构件搜索会爆机，导出选择目录界面有问题"><span class='confirm0'>[未确认] </span><a href='/zentao/www/index.php?m=bug&f=view&bugID=55746' >WIN10操作系统，32位BE构件搜索会爆机，导出选择目录界面有问题</a>
+</td>
+
+                <td>激活</td>
+        
+                <td>陈辰柄</td>
+
+                <td>11-29 16:56</td>
+        
+        <td >待解决</td>
+        <td></td>
+        <td></td>
+
+                <td>00-00 00:00</td>
+        
+        <td class='text-right'>
+          <a href='/zentao/www/index.php?m=bug&f=confirmBug&bugID=55746&onlybody=yes' target='' class='btn-icon iframe' title='确认' ><i class='icon-bug-confirmBug icon-search'></i></a><a href='/zentao/www/index.php?m=bug&f=assignTo&bugID=55746&onlybody=yes' target='' class='btn-icon iframe' title='指派' ><i class='icon-bug-assignTo icon-hand-right'></i></a><a href='/zentao/www/index.php?m=bug&f=resolve&bugID=55746&onlybody=yes' target='' class='btn-icon iframe' title='解决' ><i class='icon-bug-resolve icon-ok-sign'></i></a><button type='button' class='disabled btn-icon iframe'><i class='icon-bug-close disabled icon-off' title='关闭' ></i></button><a href='/zentao/www/index.php?m=bug&f=edit&bugID=55746' target='' class='btn-icon ' title='编辑' ><i class='icon-common-edit icon-pencil'></i></a><a href='/zentao/www/index.php?m=bug&f=create&product=9&extra=bugID=55746' target='' class='btn-icon ' title='复制' ><i class='icon-common-copy icon-copy'></i></a>        </td>
+              </tr>
+                  <tr class='text-center'>
+        <td class='bug-resolved strong text-left'>
+          <input type='checkbox' name='bugIDList[]'  value='55735'/> 
+          <a href='/zentao/www/index.php?m=bug&f=view&bugID=55735' >55735</a>
+        </td>
+        <td><span class='severity3'>3</span></td>
+        <td><span class='pri3'>3</span></td>
+
+                <td class='text-left' title="Civil3D中初始颜色曲面和三维实体的重叠在一起"><span class='confirm1'>[已确认] </span><a href='/zentao/www/index.php?m=bug&f=view&bugID=55735' >Civil3D中初始颜色曲面和三维实体的重叠在一起</a>
+</td>
+
+                <td>已解决</td>
+        
+                <td>张瑜</td>
+
+                <td>11-29 16:12</td>
+        
+        <td >待解决</td>
+        <td>贾守亮</td>
+        <td>延期处理</td>
+
+                <td>12-11 09:57</td>
+        
+        <td class='text-right'>
+          <button type='button' class='disabled btn-icon iframe'><i class='icon-bug-confirmBug disabled icon-search' title='确认' ></i></button><a href='/zentao/www/index.php?m=bug&f=assignTo&bugID=55735&onlybody=yes' target='' class='btn-icon iframe' title='指派' ><i class='icon-bug-assignTo icon-hand-right'></i></a><button type='button' class='disabled btn-icon iframe'><i class='icon-bug-resolve disabled icon-ok-sign' title='解决' ></i></button><a href='/zentao/www/index.php?m=bug&f=close&bugID=55735&onlybody=yes' target='' class='btn-icon iframe' title='关闭' ><i class='icon-bug-close icon-off'></i></a><a href='/zentao/www/index.php?m=bug&f=edit&bugID=55735' target='' class='btn-icon ' title='编辑' ><i class='icon-common-edit icon-pencil'></i></a><a href='/zentao/www/index.php?m=bug&f=create&product=9&extra=bugID=55735' target='' class='btn-icon ' title='复制' ><i class='icon-common-copy icon-copy'></i></a>        </td>
+              </tr>
+                  <tr class='text-center'>
+        <td class='bug-resolved strong text-left'>
+          <input type='checkbox' name='bugIDList[]'  value='55733'/> 
+          <a href='/zentao/www/index.php?m=bug&f=view&bugID=55733' >55733</a>
+        </td>
+        <td><span class='severity2'>2</span></td>
+        <td><span class='pri2'>2</span></td>
+
+                <td class='text-left' title="第一次上传新的Civil工程时点击暂停弹出错误提示"><span class='confirm1'>[已确认] </span><a href='/zentao/www/index.php?m=bug&f=view&bugID=55733' >第一次上传新的Civil工程时点击暂停弹出错误提示</a>
+</td>
+
+                <td>已解决</td>
+        
+                <td>张瑜</td>
+
+                <td>11-29 15:54</td>
+        
+        <td >待解决</td>
+        <td>贾守亮</td>
+        <td>延期处理</td>
+
+                <td>12-11 09:28</td>
+        
+        <td class='text-right'>
+          <button type='button' class='disabled btn-icon iframe'><i class='icon-bug-confirmBug disabled icon-search' title='确认' ></i></button><a href='/zentao/www/index.php?m=bug&f=assignTo&bugID=55733&onlybody=yes' target='' class='btn-icon iframe' title='指派' ><i class='icon-bug-assignTo icon-hand-right'></i></a><button type='button' class='disabled btn-icon iframe'><i class='icon-bug-resolve disabled icon-ok-sign' title='解决' ></i></button><a href='/zentao/www/index.php?m=bug&f=close&bugID=55733&onlybody=yes' target='' class='btn-icon iframe' title='关闭' ><i class='icon-bug-close icon-off'></i></a><a href='/zentao/www/index.php?m=bug&f=edit&bugID=55733' target='' class='btn-icon ' title='编辑' ><i class='icon-common-edit icon-pencil'></i></a><a href='/zentao/www/index.php?m=bug&f=create&product=9&extra=bugID=55733' target='' class='btn-icon ' title='复制' ><i class='icon-common-copy icon-copy'></i></a>        </td>
+              </tr>
+            </tbody>
+      <tfoot>
+        <tr>
+                    <td colspan='12'>
+                        <div class='table-actions clearfix'>
+              <div class='btn-group'>
+              <script>
+function selectAll(scope)
+{ 
+    if(scope) $('#' + scope + ' input').each(function() { $(this).attr("checked", true);});
+    else $('input:checkbox').each(function() { $(this).attr("checked", true);});
+}
+function selectReverse(scope)
+{ 
+    if(scope) $('#' + scope + ' input').each(function() { $(this).attr("checked", !$(this).attr("checked"));});
+    else $('input:checkbox').each(function(){ $(this).attr("checked", !$(this).attr("checked"));});
+}
+</script><a id='allchecker' class='btn btn-select-all' href='javascript:selectAll("")' >全选</a><a id='reversechecker' class='btn btn-select-reverse' href='javascript:selectReverse("")'>反选</a>              </div>
+              <div class='btn-group dropup'>
+                 <button type='button' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchEdit&productID=9')" class='btn'>编辑</button>                <button type='button' class='btn dropdown-toggle' data-toggle='dropdown'><span class='caret'></span></button>
+                <ul class='dropdown-menu'>
+                  <li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchConfirm','hiddenwin')">确认</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchClose','hiddenwin')">关闭</a>
+</li><li class='dropdown-submenu'><a href='#' target='' id='resolveItem'>解决</a>
+<ul class='dropdown-menu'><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=bydesign','hiddenwin')">设计如此</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=external','hiddenwin')">外部原因</a>
+</li><li class='dropdown-submenu'><a href='#' target='' id='fixedItem'>已解决</a>
+<ul class='dropdown-menu'><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=trunk','hiddenwin')">Trunk</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=90','hiddenwin')">Luban BE V6.0.1</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=89','hiddenwin')">Luban BE V6.0.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=76','hiddenwin')"> Luban BE V5.6.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=69','hiddenwin')">Luban BE V5.5.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=59','hiddenwin')">Luban BE V5.4.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=55','hiddenwin')"> Luban BE V5.3.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=53','hiddenwin')"> Luban BE V5.2.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=39','hiddenwin')">Luban BE V5.1.0</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=fixed&resolvedBuild=16','hiddenwin')">Luban BE V4.5.0</a>
+</li></ul></li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=notrepro','hiddenwin')">无法重现</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=postponed','hiddenwin')">延期处理</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=willnotfix','hiddenwin')">不予解决</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=tostory','hiddenwin')">转为需求</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=version','hiddenwin')">待做版本</a>
+</li><li><a href='#' target='' onclick="setFormAction('/zentao/www/index.php?m=bug&f=batchResolve&resolution=nofixed','hiddenwin')">无法解决</a>
+</li></ul></li>                </ul>
+              </div>
+            </div>
+                        <div class='text-right'><div style='float:right; clear:none;' class='pager'>共 <strong>5</strong> 条记录，<div class='dropdown dropup'><a href='javascript:;' data-toggle='dropdown' id='_recPerPage' data-value='1000'>每页 <strong>1000</strong> 条<span class='caret'></span></a><ul class='dropdown-menu'><li><a href='javascript:submitPage("changeRecPerPage", 5)'>5</a></li><li><a href='javascript:submitPage("changeRecPerPage", 10)'>10</a></li><li><a href='javascript:submitPage("changeRecPerPage", 15)'>15</a></li><li><a href='javascript:submitPage("changeRecPerPage", 20)'>20</a></li><li><a href='javascript:submitPage("changeRecPerPage", 25)'>25</a></li><li><a href='javascript:submitPage("changeRecPerPage", 30)'>30</a></li><li><a href='javascript:submitPage("changeRecPerPage", 35)'>35</a></li><li><a href='javascript:submitPage("changeRecPerPage", 40)'>40</a></li><li><a href='javascript:submitPage("changeRecPerPage", 45)'>45</a></li><li><a href='javascript:submitPage("changeRecPerPage", 50)'>50</a></li><li><a href='javascript:submitPage("changeRecPerPage", 100)'>100</a></li><li><a href='javascript:submitPage("changeRecPerPage", 200)'>200</a></li><li><a href='javascript:submitPage("changeRecPerPage", 500)'>500</a></li><li class='active'><a href='javascript:submitPage("changeRecPerPage", 1000)'>1000</a></li></ul></div> <strong>1/1</strong> &nbsp; <i class='icon-step-backward' title='首页'></i> <i class='icon-play icon-rotate-180' title='上一页'></i> <i class='icon-play' title='下一页'></i> <i class='icon-step-forward' title='末页'></i> <input type='hidden' id='_recTotal'  value='5' />
+<input type='hidden' id='_pageTotal' value='1' />
+<input type='text'   id='_pageID' value='1' style='text-align:center;width:30px;' class='form-control' /> 
+<input type='button' id='goto' value='GO!' onclick='submitPage("changePageID");' class='btn'/>        <script>
+        vars = 'productID=9&browseType=bySearch&param=myQueryID&orderBy=&recTotal=_recTotal_&recPerPage=_recPerPage_&pageID=_pageID_';
+        pageCookie = 'pagerBugBrowse';
+        function submitPage(mode, perPage)
+        {
+            pageTotal  = parseInt(document.getElementById('_pageTotal').value);
+            pageID     = document.getElementById('_pageID').value;
+            recPerPage = document.getElementById('_recPerPage').getAttribute('data-value');
+            recTotal   = document.getElementById('_recTotal').value;
+            if(mode == 'changePageID')
+            {
+                if(pageID > pageTotal) pageID = pageTotal;
+                if(pageID < 1) pageID = 1;
+            }
+            else if(mode == 'changeRecPerPage')
+            {
+                recPerPage = perPage;
+                pageID = 1;
+            }
+            $.cookie(pageCookie, recPerPage, {expires:config.cookieLife, path:config.webRoot});
+
+            vars = vars.replace('_recTotal_', recTotal)
+            vars = vars.replace('_recPerPage_', recPerPage)
+            vars = vars.replace('_pageID_', pageID);
+            location.href=createLink('bug', 'browse', vars);
+        }
+        </script></div></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>
+
+  </div>  <script>setTreeBox()</script>
+    
+  <div id='divider'></div>
+  <iframe frameborder='0' name='hiddenwin' id='hiddenwin' scrolling='no' class='debugwin hidden'></iframe>
+</div><div id='footer'>
+  <div id="crumbs">
+    <a href='/zentao/www/index.php?m=my&f=index' >禅道项目</a>
+&nbsp;<i class="icon-angle-right"></i>&nbsp;<a href='/zentao/www/index.php?m=qa&f=index' >测试</a>
+&nbsp;<i class="icon-angle-right"></i>&nbsp;<a href='/zentao/www/index.php?m=bug&f=browse&productID=9' >鲁班浏览器</a>
+&nbsp;<i class="icon-angle-right"></i>&nbsp;Bug  </div>
+  <div id="poweredby">
+  <a href='http://www.zentao.net' target='_blank' class='text-primary'><i class='icon-zentao'></i> 禅道项目6.0</a> &nbsp;
+              </div>
+</div>
+<script>onlybody = "no"
+</script>
+<script>$(function() 
+{
+    setModal4List('iframe', 'bugList');
+
+    if(typeof page == 'undefined') page = '';
+    if(page == 'create')
+    {
+        productID  = $('#product').val();
+        moduleID   = $('#module').val();
+        assignedto = $('#assignedTo').val();
+        changeProductConfirmed = true;
+        oldStoryID             = 0;
+        oldProjectID           = 0;
+        oldOpenedBuild         = '';
+        oldTaskID              = 0;
+        if(!assignedto) setAssignedTo(moduleID, productID);
+        notice();
+    }
+
+    if(page == 'create' || page == 'edit' || page == 'assignedto' || page == 'confirmbug')
+    {
+        $("#story, #task, #mailto").chosen(defaultChosenOptions);
+    }
+});
+
+/**
+ * Load all fields.
+ * 
+ * @param  int $productID 
+ * @access public
+ * @return void
+ */
+function loadAll(productID)
+{
+    if(page == 'create') setAssignedTo();
+
+    if(!changeProductConfirmed)
+    {
+        firstChoice = confirm(confirmChangeProduct);
+        changeProductConfirmed = true;    // Only notice the user one time.
+    }
+    if(changeProductConfirmed || firstChoice)
+    {
+        $('#taskIdBox').innerHTML = '<select id="task"></select>';  // Reset the task.
+        $('#task').chosen(defaultChosenOptions);
+        loadProductModules(productID); 
+        loadProductProjects(productID); 
+        loadProductBuilds(productID);
+        loadProductplans(productID);
+        loadProductStories(productID);
+    }
+}
+
+/**
+ * Load product's modules.
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductModules(productID)
+{
+    link = createLink('tree', 'ajaxGetOptionMenu', 'productID=' + productID + '&viewtype=bug&rootModuleID=0&returnType=html&needManage=true');
+    $('#moduleIdBox').load(link);
+}
+
+/**
+ * Load product stories 
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductStories(productID)
+{
+    link = createLink('story', 'ajaxGetProductStories', 'productID=' + productID + '&moduleId=0&storyID=' + oldStoryID);
+    $('#storyIdBox').load(link, function(){$('#story').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load projects of product. 
+ * 
+ * @param  int    $productID 
+ * @access public
+ * @return void
+ */
+function loadProductProjects(productID)
+{
+    link = createLink('product', 'ajaxGetProjects', 'productID=' + productID + '&projectID=' + oldProjectID);
+    $('#projectIdBox').load(link);
+}
+
+/**
+ * Load product plans.
+ * 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function loadProductplans(productID)
+{
+    link = createLink('productplan', 'ajaxGetProductplans', 'productID=' + productID);
+    $('#planIdBox').load(link);
+}
+
+/**
+ * Load product builds. 
+ * 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function loadProductBuilds(productID)
+{
+    link = createLink('build', 'ajaxGetProductBuilds', 'productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild);
+
+    if(page == 'create')
+    {
+        $('#buildBox').load(link, function(){ notice(); $('#openedBuild').chosen(defaultChosenOptions);});
+    }
+    else
+    {
+        $('#openedBuildBox').load(link);
+        link = createLink('build', 'ajaxGetProductBuilds', 'productID=' + productID + '&varName=resolvedBuild&build=' + oldResolvedBuild);
+        $('#resolvedBuildBox').load(link);
+    }
+}
+
+/**
+ * Load project related bugs and tasks.
+ * 
+ * @param  int    $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectRelated(projectID)
+{
+    if(projectID)
+    {
+        loadProjectTasks(projectID);
+        loadProjectStories(projectID);
+        loadProjectBuilds(projectID);
+        loadAssignedTo(projectID);
+    }
+    else
+    {
+        $('#taskIdBox').innerHTML = '<select id="task"></select>';  // Reset the task.
+        loadProductStories($('#product').val());
+        loadProductBuilds($('#product').val());
+    }
+}
+
+/**
+ * Load project tasks.
+ * 
+ * @param  projectID $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectTasks(projectID)
+{
+    link = createLink('task', 'ajaxGetProjectTasks', 'projectID=' + projectID + '&taskID=' + oldTaskID);
+    $('#taskIdBox').load(link, function(){$('#task').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load project stories.
+ * 
+ * @param  projectID $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectStories(projectID)
+{
+    link = createLink('story', 'ajaxGetProjectStories', 'projectID=' + projectID + '&productID=' + $('#product').val() + '&moduleID=0&storyID=' + oldStoryID);
+    $('#storyIdBox').load(link, function(){$('#story').chosen(defaultChosenOptions);});
+}
+
+/**
+ * Load builds of a project.
+ * 
+ * @param  int      $projectID 
+ * @access public
+ * @return void
+ */
+function loadProjectBuilds(projectID)
+{
+    productID = $('#product').val();
+    if(page == 'create') oldOpenedBuild = $('#openedBuild').val() ? $('#openedBuild').val() : 0;
+
+    if(page == 'create')
+    {
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild + "&index=0&needCreate=true");
+        $('#buildBox').load(link, function(){$('#openedBuild').chosen(defaultChosenOptions);});
+    }
+    else
+    {
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=openedBuild&build=' + oldOpenedBuild);
+        $('#openedBuildBox').load(link);
+
+        link = createLink('build', 'ajaxGetProjectBuilds', 'projectID=' + projectID + '&productID=' + productID + '&varName=resolvedBuild&build=' + oldResolvedBuild);
+        $('#resolvedBuildBox').load(link);
+    }
+}
+
+/**
+ * Set story field.
+ * 
+ * @param  moduleID $moduleID 
+ * @param  productID $productID 
+ * @access public
+ * @return void
+ */
+function setStories(moduleID, productID)
+{
+    link = createLink('story', 'ajaxGetProductStories', 'productID=' + productID + '&moduleID=' + moduleID);
+    $.get(link, function(stories)
+    {
+        if(!stories) stories = '<select id="story" name="story" class="form-control"></select>';
+        $('#story').replaceWith(stories);
+        $('#story_chosen').remove();
+        $("#story").chosen(defaultChosenOptions);
+    });
+}
+
+/**
+ * notice for create build.
+ * 
+ * @access public
+ * @return void
+ */
+function notice()
+{
+    if($('#openedBuild').find('option').length <= 1) 
+    {
+        var html = '';
+        if($('#project').val() == '')
+        {
+            html += '<a href="' + createLink('release', 'create', 'productID=' + $('#product').val()) + '" target="_blank">' + createRelease + ' </a>';
+            html += '<a href="javascript:loadProductBuilds(' + $('#product').val() + ')">' + refresh + '</a>';
+        }
+        else
+        {
+            html += '<a href="' + createLink('build', 'create','projectID=' + $('#project').val()) + '" target="_blank">' + createBuild + '</a>';
+            html += '<a href="javascript:loadProjectBuilds(' + $('project').val() + ')">' + refresh + '</a>';
+        }
+        var $bba = $('#buildBoxActions');
+        if($bba.length) $bba.html(html); else $('#buildBox').append(html);
+    }
+}
+$(document).ready(function()
+{
+    $('#' + browseType + 'Tab').addClass('active'); 
+    $('#module' + moduleID).addClass('active'); 
+    if(browseType == 'bysearch') ajaxGetSearchForm();
+});
+
+</script>
+</body>
+</html>
+
+0
+
